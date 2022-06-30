@@ -2,7 +2,7 @@ vowel = "i", "a", "e", "u", "o"
 
 def main(): #main function (duh)
     while True:
-        word = input("enter a word:").lower() #takes user input (should be a word)
+        word = input("enter a word:").lower().strip("#,!,@,$,%,^,&,*,(,),_,+,=,?,<,>,.,-,/,`") #takes user input (should be a word)
         try:
             if int(word)+' '==word+' ': # int(word) gives TypeError if it's a number and ValueError if it's a string
                 print('this will never be output') #either cases this if statement will always give an error of the previous two
@@ -10,6 +10,9 @@ def main(): #main function (duh)
             print("please enter a valid word")
             continue   #restarts the while loop
         except ValueError: #if it's a word, which means we are good
+            if word in ["",' ','  ','   ']:
+                print("please enter a valid word")
+                continue
             def contains_vowel(word): #prints "contain a vowel" or "doesn't contain a vowel" based on user input (word)
                 counter=0
                 for i in word:
