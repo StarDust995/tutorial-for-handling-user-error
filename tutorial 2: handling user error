@@ -8,7 +8,7 @@ def main(): #main function (duh)
                 print('this will never be output') #either cases this if statement will always give an error of the previous two
         except TypeError: #if it's a number:
             print("please enter a valid word")
-            continue
+            continue   #restarts the while loop
         except ValueError: #if it's a word, which means we are good
             def contains_vowel(word): #prints "contain a vowel" or "doesn't contain a vowel" based on user input (word)
                 counter=0
