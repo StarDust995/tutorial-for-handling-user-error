@@ -1,0 +1,28 @@
+vowel = "i", "a", "e", "u", "o"
+
+def main(): #main function (duh)
+    while True:
+        word = input("enter word:").lower() #takes user input (should be a word)
+        try:
+            if int(word)+' '==word+' ': # int(word) gives TypeError if it's a number and ValueError if it's a string
+                print('this will never be output') #either cases this if statement will never be true
+        except TypeError: #if it's a number:
+            print("please enter a valid word")
+            continue
+        except ValueError: #if it's a word, which means we are good
+            def contains_vowel(word): #prints "contain a vowel" or "doesn't contain a vowel" based on user input (word)
+                counter=0
+                for i in word:
+                    if i in vowel:
+                        counter+=1 #we increase the counter by one for each vowel in word
+                if counter>0:
+                    print('contains {} vowel(s)'.format(counter)) #prints the number of vowels in the word
+                else:
+                    print('doesn\'t contain a vowel')
+            contains_vowel(word)
+            q=input("would you like to restart? ").lower() #prompt user input
+            if q in ['yes','y','yea','yep','sure','ok','k','oui']:
+                continue #restarts the loop in case of a positive input
+            else:
+                break #stops the while loop in case of any other input
+main()
